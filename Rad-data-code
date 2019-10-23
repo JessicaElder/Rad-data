@@ -18,5 +18,5 @@ while time.time() < timeout_start + timeout:
 	if GPIO.event_detected(5):
 		n += 1
 		time.sleep(0.01)
-		#print(n)
-print(n)
+		print(n)
+#print(n)
