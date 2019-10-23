@@ -21,12 +21,7 @@ print(n)
 timeout_start = time.time()
 print(n)
 
-def my_callback(channel):
-    print('This is a edge event callback function!')
-    print('Edge detected on channel %s'%channel)
-    print('This is run in a different thread to your main program')
-
-GPIO.add_event_detect(5, GPIO.FALLING, callback=my_callback)
+GPIO.add_event_detect(5, GPIO.RISING)
 print(n)
 while time.time() < timeout_start + timeout:
 	#print(n)
