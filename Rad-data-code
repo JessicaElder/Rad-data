@@ -6,17 +6,23 @@ GPIO.setmode(GPIO.BCM)
 chan_list = [4,5]
 GPIO.setup(chan_list, GPIO.IN)
 
-while GPIO.input(5) == GPIO.HIGH:
-	time.sleep(0.01)
-
-GPIO.add_event_detect(5, GPIO.RISING)
-timeout = 5
 n = 0
-timeout_start = time.time()
 
+while GPIO.input(5) == GPIO.HIGH:
+	print(n)
+	time.sleep(0.01)
+	print(n)
+print(n)
+GPIO.add_event_detect(5, GPIO.RISING)
+print(n)
+timeout = 5
+print(n)
+timeout_start = time.time()
+print(n)
 while time.time() < timeout_start + timeout:
 	if GPIO.event_detected(5):
 		n += 1
 		print(n)
 		#time.sleep(0.01)
 #print(n)
+print(n)
