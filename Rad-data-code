@@ -6,8 +6,8 @@ GPIO.setmode(GPIO.BCM)
 chan_list = [4,5]
 GPIO.setup(chan_list, GPIO.IN)
 
-#while GPIO.input(5) == GPIO.HIGH:
-	#time.sleep(0.01)
+while GPIO.input(5) == GPIO.HIGH:
+	time.sleep(0.01)
 
 GPIO.add_event_detect(5, GPIO.RISING)
 timeout = 5
