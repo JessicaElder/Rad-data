@@ -14,7 +14,7 @@ n = 0
 #	print(n)
 print(n)
 
-GPIO.add_event_detect(5, GPIO.RISING)
+GPIO.add_event_detect(5, GPIO.FALLING)
 print(n)
 timeout = 5
 print(n)
@@ -22,7 +22,7 @@ timeout_start = time.time()
 print(n)
 while time.time() < timeout_start + timeout:
 	#print(n)
-	#if GPIO.input(5) == GPIO.HIGH:
+	#if GPIO.input(5) == GPIO.LOW:
 	if GPIO.event_detected(5):
 		n += 1
 		print(n)
