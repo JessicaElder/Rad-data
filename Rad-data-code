@@ -33,4 +33,7 @@ while time.time() < timeout_start + timeout:
 		print(n)
 		time.sleep(0.01)
 print(n)
+
 print(datetime.datetime.now())
+cps = n / timeout
+print(cps)
