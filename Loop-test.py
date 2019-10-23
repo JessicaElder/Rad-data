@@ -10,5 +10,5 @@ while time.time() < timeout_start + timeout:
 	if n <= 10:
 		n += 1
 		print(n)
-		#time.sleep(0.5)
+		time.sleep(0.01)
 #print(n)
