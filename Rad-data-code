@@ -16,9 +16,10 @@ n = 0
 #	print(n)
 print(n)
 
+t = raw_input("How many seconds would you like to run for?")
 
 print(n)
-timeout = 5
+timeout = t
 print(n)
 timeout_start = time.time()
 print(n)
