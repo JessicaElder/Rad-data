@@ -1,6 +1,8 @@
 import time
 import math
 import RPi.GPIO as GPIO 
+import datetime
+
 GPIO.setmode(GPIO.BCM)
 
 chan_list = [4,5]
@@ -21,7 +23,7 @@ print(n)
 timeout_start = time.time()
 print(n)
 
-GPIO.add_event_detect(5, GPIO.FALLING)
+GPIO.add_event_detect(5, GPIO.RISING)
 print(n)
 while time.time() < timeout_start + timeout:
 	#print(n)
@@ -31,3 +33,4 @@ while time.time() < timeout_start + timeout:
 		print(n)
 		time.sleep(0.01)
 print(n)
+print(datetime.datetime.now())
