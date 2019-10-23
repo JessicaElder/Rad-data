@@ -9,10 +9,10 @@ GPIO.setup(chan_list, GPIO.IN)
 n = 0
 
 #while GPIO.input(5) == GPIO.HIGH:
-	#print(n)
-	#time.sleep(0.01)
-	#print(n)
-#print(n)
+#	print(n)
+#	time.sleep(0.01)
+#	print(n)
+print(n)
 
 GPIO.add_event_detect(5, GPIO.RISING)
 print(n)
@@ -21,9 +21,9 @@ print(n)
 timeout_start = time.time()
 print(n)
 while time.time() < timeout_start + timeout:
-	print(n)
-	if GPIO.input(5) == GPIO.HIGH:
-	#if GPIO.event_detected(5):
+	#print(n)
+	#if GPIO.input(5) == GPIO.HIGH:
+	if GPIO.event_detected(5):
 		n += 1
 		print(n)
 		time.sleep(0.01)
