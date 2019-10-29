@@ -41,7 +41,7 @@ while time.time() < timeout_start + timeout:
 		"""Adds counts"""
 		inter_n += 1
 		n += 1
-		time.sleep(0)
+		time.sleep(0.01)
 
 
 cps = inter_n / interval_len
