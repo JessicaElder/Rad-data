@@ -16,13 +16,14 @@ n = 0
 #	print(n)
 print(n)
 
-t = input("How many seconds would you like to run for?")
-print(t)
-print(n)
-timeout = t
-print(n)
+t = input("How long would you like to run for?")
+i = input("At what interval?")
+n = 0
+inter_n = 0
+timeout = int(t)
+interval_len = int(i)
 timeout_start = time.time()
-print(n)
+interval_start = timeout_start
 
 GPIO.add_event_detect(5, GPIO.RISING)
 print(n)
@@ -31,11 +32,19 @@ while time.time() < timeout_start + timeout:
 	#if GPIO.input(5) == GPIO.LOW:
 	
 	if GPIO.event_detected(5):
+		if time.time() >= interval_start + interval_len:
+			"""Spits out intervals"""
+			cps = inter_n / interval_len
+			print("CPS: " + str(cps) + " Time: " + str(datetime.datetime.now()) )
+			interval_start = time.time()
+			inter_n = 0
+		"""Adds counts"""
+		inter_n += 1
 		n += 1
-		print(n)
-		time.sleep(0.01)
-print(n)
+		time.sleep(0)
 
-print(datetime.datetime.now())
-cps = n / timeout
-print(cps)
+
+cps = inter_n / interval_len
+total_cps = n / timeout
+print("CPS: " + str(cps) + " Time: " + str(datetime.datetime.now()) )
+print("Total CPS: " + str(total_cps) + " Total Counts: " + str(n) + " Time: " + str(datetime.datetime.now()))
