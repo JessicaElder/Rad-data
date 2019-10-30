@@ -56,6 +56,8 @@ while time.time() < timeout_start + timeout:
 
 
 cps = inter_n / interval_len
+total_int += cps
+i_n += 1
 #total_cps = n / timeout
 total_cps = total_int / i_n
 csvcps.write(str(cps) + ", " + str(datetime.datetime.now()) + "\n")
