@@ -14,7 +14,7 @@ n = 0
 #	print(n)
 #	time.sleep(0.01)
 #	print(n)
-print(n)
+#print(n)
 csvcps = open("/home/pi/cps.csv")
 
 t = input("How long would you like to run for?")
@@ -29,7 +29,7 @@ timeout_start = time.time()
 interval_start = timeout_start
 
 GPIO.add_event_detect(5, GPIO.FALLING)
-print(n)
+#print(n)
 while time.time() < timeout_start + timeout:
 	#print(n)
 	#if GPIO.input(5) == GPIO.LOW:
@@ -42,7 +42,7 @@ while time.time() < timeout_start + timeout:
 			CPS_list.append(cps)
 			reporttime = time.strftime("%H:%M:%S") 
 			
-			csvcps.write(cps + ", " + reporttime + "/n")
+			csvcps.write(str(cps) + ", " + reporttime + "/n")
 			
 			interval_start = time.time()
 			inter_n = 0
