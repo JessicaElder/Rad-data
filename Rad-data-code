@@ -15,10 +15,12 @@ n = 0
 #	time.sleep(0.01)
 #	print(n)
 print(n)
+csvcps = open("home/pi/cps.csv")
 
 t = input("How long would you like to run for?")
 i = input("At what interval?")
 n = 0
+i_n = 0
 inter_n = 0
 timeout = int(t)
 interval_len = int(i)
@@ -38,14 +40,19 @@ while time.time() < timeout_start + timeout:
 			cps = inter_n / interval_len
 			print("CPS: " + str(cps) + " Time: " + str(datetime.datetime.now()) )
 			CPS_list.append(cps)
+			reporttime = time.strftime("%H:%M:%S") 
+			
+			csvcps.write(cps + ", " + reporttime + "/n")
+			
 			interval_start = time.time()
 			inter_n = 0
+			#i_n += 1
 		"""Adds counts"""
 		inter_n += 1
 		n += 1
-		time.sleep(0.01)
+		#time.sleep(0.01)
 
-
+csvcps.close
 cps = inter_n / interval_len
 total_cps = n / timeout
 CPS_list.append(cps)
