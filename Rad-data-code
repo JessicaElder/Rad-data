@@ -42,7 +42,7 @@ while time.time() < timeout_start + timeout:
 			CPS_list.append(cps)
 			reporttime = time.strftime("%H:%M:%S") 
 			
-			csvcps.write(str(cps) + ", " + reporttime + "\n")
+			csvcps.write(str(cps) + ", " + str(datetime.datetime.now()) + "\n")
 			
 			interval_start = time.time()
 			inter_n = 0
@@ -55,7 +55,7 @@ while time.time() < timeout_start + timeout:
 
 cps = inter_n / interval_len
 total_cps = n / timeout
-csvcps.write(str(cps) + ", " + reporttime + "\n")
+csvcps.write(str(cps) + ", " + str(datetime.datetime.now()) + "\n")
 csvcps.close
 CPS_list.append(cps)
 print("CPS: " + str(cps) + " Time: " + str(datetime.datetime.now()) )
