@@ -38,7 +38,7 @@ while time.time() < timeout_start + timeout:
 	if GPIO.event_detected(5):
 		if time.time() >= interval_start + interval_len:
 			"""Spits out intervals"""
-			cps = inter_n / interval_len
+			cps = float(inter_n) / float(interval_len)
 			print("CPS: " + str(cps) + " Time: " + str(datetime.datetime.now()) )
 			CPS_list.append(cps)
 			reporttime = time.strftime("%H:%M:%S") 
@@ -55,11 +55,11 @@ while time.time() < timeout_start + timeout:
 		#time.sleep(0.01)
 
 
-cps = inter_n / interval_len
+cps = float(inter_n) / float(interval_len)
 total_int += cps
 i_n += 1
 #total_cps = n / timeout
-total_cps = total_int / i_n
+total_cps = float(total_int) / float(i_n)
 csvcps.write(str(cps) + ", " + str(datetime.datetime.now()) + "\n")
 csvcps.close
 CPS_list.append(cps)
