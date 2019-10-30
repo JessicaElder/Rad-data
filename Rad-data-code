@@ -22,10 +22,11 @@ n = 0
 inter_n = 0
 timeout = int(t)
 interval_len = int(i)
+CPS_list = []
 timeout_start = time.time()
 interval_start = timeout_start
 
-GPIO.add_event_detect(5, GPIO.RISING)
+GPIO.add_event_detect(5, GPIO.FALLING)
 print(n)
 while time.time() < timeout_start + timeout:
 	#print(n)
@@ -36,6 +37,7 @@ while time.time() < timeout_start + timeout:
 			"""Spits out intervals"""
 			cps = inter_n / interval_len
 			print("CPS: " + str(cps) + " Time: " + str(datetime.datetime.now()) )
+			CPS_list.append(cps)
 			interval_start = time.time()
 			inter_n = 0
 		"""Adds counts"""
@@ -46,5 +48,7 @@ while time.time() < timeout_start + timeout:
 
 cps = inter_n / interval_len
 total_cps = n / timeout
+CPS_list.append(cps)
 print("CPS: " + str(cps) + " Time: " + str(datetime.datetime.now()) )
 print("Total CPS: " + str(total_cps) + " Total Counts: " + str(n) + " Time: " + str(datetime.datetime.now()))
+print(CPS_list)
