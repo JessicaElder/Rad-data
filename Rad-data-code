@@ -46,7 +46,7 @@ while time.time() < timeout_start + timeout:
 			csvcps.write(str(cps) + ", " + str(datetime.datetime.now()) + "\n")
 			
 			interval_start = time.time()
-			total_int += inter_n
+			total_int += cps
 			inter_n = 0
 			i_n += 1
 		"""Adds counts"""
