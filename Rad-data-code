@@ -21,14 +21,14 @@ t = input("How long would you like to run for?")
 i = input("At what interval?")
 n = 0
 total_int = 0
-i_n = 0
+i_n = float(t) / float(i)
 inter_n = 0
 timeout = int(t)
 interval_len = int(i)
 CPS_list = []
 timeout_start = time.time()
 interval_start = timeout_start
-
+#num_int = float(t) / float(i)
 GPIO.add_event_detect(5, GPIO.FALLING)
 #print(n)
 while time.time() < timeout_start + timeout:
@@ -48,7 +48,7 @@ while time.time() < timeout_start + timeout:
 			interval_start = time.time()
 			total_int += cps
 			inter_n = 0
-			i_n += 1
+			#i_n += nu
 		"""Adds counts"""
 		inter_n += 1
 		n += 1
