@@ -1,0 +1,6 @@
+Purpose: This code is used to output counts of radiation emissions per second (cps) over a set timeframe with set time intervals. 
+
+User Instruction: At the start of the program the user will be prompted to choose both a timeframe for measurement and an interval for which cps will be measured. The unit is seconds. 
+The prompts are "How long would you like to run for?" and "At what interval?"
+The program will then output cps for the user defined timeframes and intervals, along with corresponding timestamp for when the measurement finished. 
+These data are stored in the file cps.csv, which is located in the home directory, /home/pi/cps.csv. 
